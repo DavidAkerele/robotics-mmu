@@ -1,0 +1,3 @@
+<launch>
+  <node name="davidakerele_pubsub" pkg="rss_linux_pkg" type="davidakerele_pubsub.py" output="screen" />
+</launch>

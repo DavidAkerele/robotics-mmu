@@ -1,0 +1,4 @@
+<launch>
+  <node name="davidakerele_server" pkg="rss_linux_pkg" type="davidakerele_server.py" output="screen" />
+  <node name="davidakerele_client" pkg="rss_linux_pkg" type="davidakerele_client.py" output="screen" />
+</launch>

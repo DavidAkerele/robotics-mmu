@@ -1,0 +1,4 @@
+<launch>
+  <node name="davidakerele_publisher_line" pkg="rss_linux_pkg" type="davidakerele_publisher_line.py" output="screen" />
+  <node name="davidakerele_subscriber" pkg="rss_linux_pkg" type="davidakerele_subscriber.py" output="screen" />
+</launch>
