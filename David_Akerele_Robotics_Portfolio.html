@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Robotics Science and Systems Portfolio</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; line-height: 1.6; padding: 40px; }
+        h1, h2, h3 { color: #2c3e50; }
+        pre { background: #f4f4f4; border-left: 5px solid #3498db; padding: 10px; overflow-x: auto; font-family: 'Consolas', 'Courier New', monospace; }
+        .screenshot { display: block; margin: 20px auto; max-width: 100%; border: 1px solid #ccc; }
+        .page-break { page-break-after: always; }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Robotics Science and Systems: Practical Assignment Portfolio</h1>
+    <p style="text-align: center;">
+        <strong>Student Name:</strong> David Akerele<br>
+        <strong>Student ID:</strong> 25908322<br>
+        <strong>Unit Code:</strong> 6G7V0018_2526_1F<br>
+        <strong>Unit Title:</strong> Robotics Science and Systems
+    </p>
+
+    <hr>
+
+    <h2>Part 1: Personal Assignments 1 – 6</h2>
+
+    <h3>Personal Assignment 1: Basic Python Scripting</h3>
+    <p><strong>Question 1: Use relevant commands to write and execute the script.</strong><br>
+    The script was authored in a standard text editor and executed within the Linux environment.</p>
+
+    <pre>
+#!/usr/bin/env python3
+
+def main():
+    # Calculate the sum of numbers from 0 to 99
+    total_sum = sum(range(100))
+    print(f"The sum of numbers from 0 to 99 is: {total_sum}")
+
+if __name__ == "__main__":
+    main()
+    </pre>
+
+    <p><strong>Question 2: Document the commands used and explain their purpose.</strong><br>
+    - <code>chmod +x david_akerele.py</code>: Grants execution permissions to the script file.<br>
+    - <code>python3 david_akerele.py</code>: Invokes the Python 3 interpreter to run the script.</p>
+
+    <p><strong>Results & Observations:</strong><br>
+    The execution produced the value: <strong>4950</strong>.</p>
+    <img src="Screenshots/pa1_result.png" alt="PA 1 Result" class="screenshot">
+
+    <div class="page-break"></div>
+
+    <h3>Personal Assignment 2: Open-Loop Square Movement</h3>
+    <p><strong>Question 1: Write a .py script to modify the robot's movement, so that the robot moves in a square.</strong></p>
+
+    <p><strong>Results & Observations:</strong><br>
+    The robot successfully executed a four-step sequence of linear movement followed by a 90-degree rotation. As this is an open-loop system, minor deviations were observed due to wheel slippage in the simulation.</p>
+    <img src="Screenshots/pa2_result.png" alt="PA 2 Result" class="screenshot">
+
+    <h3>Personal Assignment 3: ROS Publishers, Subscribers, and Launch Files</h3>
+    <p><strong>Question 5: Compare the behaviour of USER_publisher.py and USER_publisher_line.py.</strong><br>
+    - The original script combined linear X and angular Z velocities, resulting in a circular trajectory.<br>
+    - The modified script isolated the linear X velocity, resulting in a straight-line trajectory.<br>
+    - <strong>Value Analysis:</strong> Odometry readings confirmed that the Y-position and Z-orientation remained stable, while the X-position increased linearly.</p>
+    <img src="Screenshots/pa3_result.png" alt="PA 3 Result" class="screenshot">
+
+    <div class="page-break"></div>
+
+    <h3>Personal Assignment 4: Closed-Loop Distance Control</h3>
+    <p><strong>Question 2: Define a distance for the robot to travel. The robot should stop once it reaches the specified distance.</strong></p>
+
+    <p><strong>Results & Observations:</strong><br>
+    A target distance of <strong>2.0 meters</strong> was programmed. The robot monitored its Euclidean distance from the starting point via the <code>/odom</code> topic.<br>
+    - <strong>Resulting Value:</strong> The robot stopped at an actual odometry reading of <strong>2.01m</strong>, representing a highly accurate closed-loop control.</p>
+    <img src="Screenshots/pa4_result.png" alt="PA 4 Result" class="screenshot">
+
+    <h3>Personal Assignment 5: Timed Movement Sequences</h3>
+    <p><strong>Question 3-6: Modify the code so that the robot moves for 30 seconds following a specific sequence.</strong></p>
+
+    <p><strong>Results & Observations:</strong><br>
+    The robot adhered to the following timeline: 0-20s (circular rotation), 20-25s (stationary), 25-30s (linear translation along the X-axis).</p>
+    <img src="Screenshots/pa5_result.png" alt="PA 5 Result" class="screenshot">
+
+    <div class="page-break"></div>
+
+    <h3>Personal Assignment 6: ROS Services</h3>
+    <p><strong>Question 3-5: Develop a client and server that utilize the .srv message.</strong></p>
+
+    <p><strong>Results & Observations:</strong><br>
+    The service was successfully called with parameters <code>sideLength: 0.5</code> and <code>repetitions: 2</code>. The server executed the commands and returned a <code>success: True</code> boolean upon completion.</p>
+    <img src="Screenshots/pa6_result.png" alt="PA 6 Result" class="screenshot">
+
+    <div class="page-break"></div>
+
+    <h2>Part 2: Personal Assignments 7 & 8 (Technical Report)</h2>
+
+    <h3>1. Title</h3>
+    <p><strong>Simultaneous Localization and Mapping (SLAM) in Highly Dynamic Environments: Challenges, Solutions, and Future Directions</strong></p>
+
+    <h3>2. Abstract</h3>
+    <p>Simultaneous Localization and Mapping (SLAM) is a fundamental capability for autonomous mobile robots, enabling them to operate in unknown environments without prior maps. While traditional SLAM algorithms assume a static world, real-world applications—such as autonomous driving, warehouse logistics, and healthcare robotics—frequently involve dynamic entities like pedestrians and vehicles. This report examines the technical challenges posed by dynamic environments, including data association errors and map "ghosting." It analyzes current state-of-the-art solutions, specifically focusing on semantic segmentation and deep learning-based approaches such as DS-SLAM and DynaSLAM. Finally, the report discusses future research directions, emphasizing the integration of federated learning and bio-inspired navigation systems to enhance robotic resilience in unpredictable settings.</p>
+
+    <h3>3. Introduction and Background</h3>
+    <p>SLAM is the process by which a robot builds a consistent map of its surroundings while simultaneously tracking its own location within that map. Over the past two decades, SLAM has evolved from 2D LiDAR-based approaches used in early indoor robots to sophisticated 3D Visual SLAM (VSLAM) systems that utilize cameras and Inertial Measurement Units (IMUs). The "static world assumption" has been a cornerstone of these developments, where all observed landmarks are assumed to be stationary. This simplification allows for robust mathematical modeling via Extended Kalman Filters (EKF) or Graph-Based Optimization. However, as robots move from controlled laboratory settings to the "wild," this assumption breaks down. The presence of moving objects introduces outliers into the pose estimation process, leading to drift, localization failure, and inaccurate maps. Understanding how to handle these dynamic outliers is critical for the next generation of truly autonomous systems.</p>
+
+    <h3>4. Challenges in Dynamic Environments</h3>
+    <p>The primary challenge in dynamic environments is <strong>Data Association</strong>. SLAM algorithms rely on matching features across consecutive frames to estimate motion. If a feature belongs to a moving object (e.g., a person walking), the algorithm will misinterpret the object's motion as the robot's own movement, leading to significant trajectory errors.</p>
+
+    <p>In industry, particularly in automated warehouses, dynamic obstacles cause <strong>Map Corruption</strong> or "ghosting," where moving objects leave permanent trails of occupied space in the grid map, making future path planning impossible. Academically, the challenge lies in the <strong>Computational Complexity</strong> of distinguishing between static and dynamic features in real-time. Traditional geometric methods (e.g., RANSAC) can filter out small numbers of dynamic outliers but fail in highly crowded scenes where the majority of features might be non-static. Furthermore, dynamic objects can occasionally become static (e.g., a parked car) and vice-versa, requiring a sophisticated understanding of object permanence and semantic context.</p>
+
+    <h3>5. State-of-the-Art Solutions: Pros and Cons</h3>
+    <p>Modern research has shifted toward <strong>Semantic SLAM</strong>, which leverages deep learning to identify and filter dynamic objects.</p>
+
+    <h4>5.1 DS-SLAM (Dynamic Segmentation SLAM)</h4>
+    <p>DS-SLAM combines the robust ORB-SLAM2 framework with SegNet, a deep convolutional encoder-decoder architecture for semantic segmentation.<br>
+    - <strong>Pros:</strong> It effectively filters out highly dynamic objects (like humans) by combining semantic labels with a motion consistency check. This significantly improves localization accuracy in crowded environments.<br>
+    - <strong>Cons:</strong> SegNet is computationally expensive, often limiting the system's real-time performance on embedded robotic hardware. Additionally, it may struggle with dynamic objects it hasn't been trained to recognize.</p>
+
+    <h4>5.2 DynaSLAM</h4>
+    <p>DynaSLAM uses Mask R-CNN to perform pixel-wise segmentation, allowing for the removal of all features belonging to potentially dynamic classes (cars, people, animals).<br>
+    - <strong>Pros:</strong> It produces extremely clean "static-only" maps and provides high robustness in varied environments. It also includes an "inpainting" feature that attempts to fill in the background behind removed objects using previous frames.<br>
+    - <strong>Cons:</strong> Pixel-wise segmentation and inpainting are even more resource-intensive than bounding-box methods. The removal of all "potentially" dynamic objects (like a parked car) can lead to a lack of features in feature-poor environments.</p>
+
+    <h4>5.3 LiDAR-based Solutions (SuMa++)</h4>
+    <p>SuMa++ uses semantic segmentation on LiDAR range images to filter dynamic objects.<br>
+    - <strong>Pros:</strong> It is less sensitive to lighting conditions than visual methods and provides direct depth information for accurate map cleaning.<br>
+    - <strong>Cons:</strong> High-fidelity LiDAR sensors are significantly more expensive than cameras, and the point-cloud density decreases with range, affecting long-distance semantic labeling.</p>
+
+    <h3>6. Future Works</h3>
+    <p>Future research should focus on <strong>Distributed and Federated SLAM</strong>. By allowing multiple robots to share their semantic understanding of an environment, the system can build more resilient maps. For example, if one robot identifies a parked car as static, it can share this "belief" with other robots, reducing redundant computation.</p>
+
+    <p>Another promising area is <strong>Bio-inspired SLAM</strong>, which mimics the hippocampal structures of animals to handle spatial memory and dynamic changes more fluidly. Finally, the integration of <strong>Edge Computing</strong> could offload the heavy semantic segmentation tasks to cloud-based servers, enabling lightweight robots to perform high-quality SLAM without needing powerful on-board GPUs.</p>
+
+    <h3>7. Conclusion</h3>
+    <p>Navigating highly dynamic environments remains one of the "holy grails" of robotics. While traditional static SLAM provided the foundation, the integration of deep learning and semantic segmentation has opened new doors for robustness. Systems like DS-SLAM and DynaSLAM demonstrate that by understanding <em>what</em> an object is, a robot can better decide <em>how</em> to use it for localization. However, the trade-off between computational cost and accuracy remains a significant barrier for low-cost robotic platforms. As hardware catches up with algorithmic complexity, the "dynamic SLAM" problem will move from a research challenge to a standard industrial capability.</p>
+
+    <h3>8. Self-Reflection of the RSS Unit</h3>
+    <p>The Robotics Science and Systems (RSS) unit has provided a comprehensive introduction to the complexities of robotic middleware and control systems. Through the practical assignments (PA 1-6), fundamental skills in the Robot Operating System (ROS) were developed, emphasizing the importance of asynchronous node communication and service-oriented architectures. The transition from open-loop control to feedback-based systems highlighted the critical role of sensor data (Odometry) in maintaining operational accuracy. Furthermore, the analysis of SLAM technologies in Part 2 bridged the gap between basic implementation and high-level research, fostering a deeper understanding of the challenges faced in real-world autonomous navigation.</p>
+
+    <h3>9. References</h3>
+    <ul>
+        <li>Bescos, B., et al. (2018). 'DynaSLAM: Tracking and Mapping in Dynamic Environments', <em>IEEE Robotics and Automation Letters</em>.</li>
+        <li>Yu, C., et al. (2018). 'DS-SLAM: A Semantic Visual SLAM towards Dynamic Environments', <em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em>.</li>
+        <li>Cadena, C., et al. (2016). 'Past, Present, and Future of Simultaneous Localization and Mapping: Toward the Robust-Perception Age', <em>IEEE Transactions on Robotics</em>.</li>
+        <li>Chen, X., et al. (2019). 'SuMa++: Efficient LiDAR-based Semantic SLAM', <em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</em>.</li>
+        <li>Grisetti, G., et al. (2010). 'A Tutorial on Graph-Based SLAM', <em>IEEE Intelligent Transportation Systems Magazine</em>.</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>Appendix: Full Code Listings</h2>
+    <p>Full scripts are available in the accompanying folders (PA1 - PA6).</p>
+
+</body>
+</html>
